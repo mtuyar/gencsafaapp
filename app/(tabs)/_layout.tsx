@@ -1,9 +1,10 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { Image, View } from 'react-native'; // Fotoğraf için Image bileşeni
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -15,20 +16,72 @@ export default function TabLayout() {
         headerShown: false,
       }}>
       <Tabs.Screen
-        name="index"
+        name="explore"
         options={{
-          title: 'Home',
+          title: '',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+            <TabBarIcon
+              name={focused ? 'compass' : 'compass-outline'}
+              color={color ='#365F8F'}
+              style={{ marginTop: 11 }}
+            />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="third"
         options={{
-          title: 'Explore',
+          title: '',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <TabBarIcon
+              name={focused ? 'library' : 'library-outline'}
+              color={color ='#365F8F'}
+              style={{ marginTop: 11 }}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: '',
+          tabBarIcon: ({ color, focused }) => (
+            <View style={{ alignItems: 'center' }}>
+              <Image
+                source={focused ? require('../../assets/images/gencsafalogofocused.png'): require('../../assets/images/gencsafalogo.png')} // Yerel dosya yolu
+                style={{
+                  marginTop: 14,
+                  width: 34, // Simge boyutuna uygun genişlik
+                  height: 34, // Simge boyutuna uygun yükseklik
+                }}
+              />
+            </View>
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="fourth"
+        options={{
+          title: '',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? 'checkmark-circle' : 'checkmark-circle-outline'}
+              color={color ='#365F8F'}
+              style={{ marginTop: 11 }}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="fifth"
+        options={{
+          title: '',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
+              name={focused ? 'grid' : 'grid-outline'}
+              color={color ='#365F8F'}
+              style={{ marginTop: 11 }}
+            />
           ),
         }}
       />
